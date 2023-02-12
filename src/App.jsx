@@ -77,25 +77,31 @@ export default function App() {
 
   return (
     <>
-      <div className="bg-gray-100 h-screen">
-        <div className="flex flex-col items-center">
-          <div className="flex gap-3 p-3">
-            <button
-              className="bg-slate-200 hover:bg-slate-300 p-2 rounded"
-              onClick={() => setTab('invoice')}
-            >
-              Invoice
-            </button>
-            <button
-              className="bg-slate-200 hover:bg-slate-300 p-2 rounded"
-              onClick={() => setTab('preview')}
-            >
-              review
-            </button>
+      <div className="bg-gray-100 h-screen font-poppins">
+        <div className="items-center p-3">
+          <div className="container border-b border-gray-400  m-auto">
+            <div className="flex gap-0 p-0">
+              <button
+                className={`bg-gray-200 hover:bg-gray-300 hover:border-gray-400 p-2 rounded-t-lg border border-b-0 ${
+                  tab === 'invoice' && 'bg-gray-300 border-gray-400'
+                }`}
+                onClick={() => setTab('invoice')}
+              >
+                Invoice
+              </button>
+              <button
+                className={`bg-gray-200 hover:bg-gray-400 hover:border-gray-400 p-2 rounded-t-lg border border-b-0 ${
+                  tab === 'preview' && 'bg-gray-300 border-gray-400'
+                }`}
+                onClick={() => setTab('preview')}
+              >
+                Preview
+              </button>
+            </div>
           </div>
         </div>
-        {tab === 'invoice' ? (
-          <div class="flex w-full flex-col items-center gap-10 container mx-auto my-2 bg-white p-12 shadow-xl shadow-gray-300">
+        {tab === 'invoice' && (
+          <div class="flex w-full flex-col items-center gap-10 container mx-auto my-2 bg-white p-12 rounded-t-lg-3xl border">
             {/* <div class="text-xl font-semibold text-gray-500 ">Add Invoice</div> */}
             <div class="flex w-full flex-col gap-5">
               <div class="w-full mx-auto">
@@ -103,22 +109,22 @@ export default function App() {
                   <table class="table-auto w-full">
                     <thead>
                       <tr>
-                        <th class="px-4 py-2 text-left text-gray-700 font-bold">
+                        <th class="px-4 w-1/12  py-2 text-left text-gray-700 font-bold">
                           #
                         </th>
-                        <th class="px-4 py-2 text-left text-gray-700 font-bold">
+                        <th class="px-4 w-1/3  py-2 text-left text-gray-700 font-bold">
                           Item
                         </th>
-                        <th class="px-4 py-2 text-left text-gray-700 font-bold">
+                        {/* <th class="px-4 w-1/3 py-2 text-left text-gray-700 font-bold">
                           Item Code
-                        </th>
-                        <th class="px-4 py-2 text-left text-gray-700 font-bold">
+                        </th> */}
+                        <th class="px-4 w-1/3 py-2 text-left text-gray-700 font-bold">
                           Quantity
                         </th>
-                        <th class="px-4 py-2 text-left text-gray-700 font-bold">
+                        <th class="px-4 w-1/3 py-2 text-left text-gray-700 font-bold">
                           Unit Price
                         </th>
-                        <th class="px-4 py-2 text-right text-gray-700 font-bold">
+                        <th class="px-4 w-1/12 py-2 text-right text-gray-700 font-bold">
                           Price
                         </th>
                       </tr>
@@ -139,21 +145,21 @@ export default function App() {
                                   changeProductHandler(e, product.itemcode)
                                 }
                                 placeholder="Item"
-                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                               />
                             </td>
-                            <td class="border-b px-4 py-2 text-left text-gray-800">
+                            {/* <td class="border-b px-4 py-2 text-left text-gray-800">
                               <input
-                                type="textcode"
-                                name="itemcode"
-                                value={product.itemcode}
-                                onChange={(e) =>
-                                  changeProductHandler(e, product.itemcode)
-                                }
+                              type="textcode"
+                              name="itemcode"
+                              value={product.itemcode}
+                              onChange={(e) =>
+                                changeProductHandler(e, product.itemcode)
+                              }
                                 placeholder="Item Code"
-                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
-                              />
-                            </td>
+                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
+                                />
+                              </td> */}
                             <td class="border-b px-4 py-2 text-left text-gray-800">
                               <input
                                 type="text"
@@ -163,7 +169,7 @@ export default function App() {
                                   changeProductHandler(e, product.itemcode)
                                 }
                                 placeholder="Item"
-                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                               />
                             </td>
                             <td class="border-b px-4 py-2 text-left text-gray-800">
@@ -175,7 +181,7 @@ export default function App() {
                                   changeProductHandler(e, product.itemcode)
                                 }
                                 placeholder="Item"
-                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                                class="w-full border-2 border-white hover:border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                               />
                             </td>
                             <td class="border-b px-4 py-2 text-right text-gray-800">
@@ -202,20 +208,20 @@ export default function App() {
                               value={item}
                               onChange={onChangeHandler}
                               placeholder="Item"
-                              class="w-full border-2 border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                              class="w-full border-2 border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                               ref={inputReference}
                             />
                           </td>
-                          <td class="px-1 py-2 text-left text-gray-800">
+                          {/* <td class="px-1 py-2 text-left text-gray-800">
                             <input
-                              type="text"
-                              name="itemcode"
-                              value={itemcode}
-                              onChange={onChangeHandler}
-                              placeholder="Item Code"
-                              class="w-full border-2 border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
-                            />
-                          </td>
+                            type="text"
+                            name="itemcode"
+                            value={itemcode}
+                            onChange={onChangeHandler}
+                            placeholder="Item Code"
+                              class="w-full border-2 border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
+                              />
+                            </td> */}
                           <td class="px-1 py-2 text-left text-gray-800">
                             <input
                               type="text"
@@ -223,7 +229,7 @@ export default function App() {
                               value={quantity}
                               onChange={onChangeHandler}
                               placeholder="Quantity"
-                              class="w-full border-2 border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                              class="w-full border-2 border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                             />
                           </td>
                           <td class="px-1 py-2 text-left text-gray-800">
@@ -233,7 +239,7 @@ export default function App() {
                               value={price}
                               onChange={onChangeHandler}
                               placeholder="Price"
-                              class="w-full border-2 border-gray-300 p-2 rounded-lg focus:outline-none focus:border-gray-700"
+                              class="w-full border-2 border-gray-300 p-2 rounded-t-lg-lg focus:outline-none focus:border-gray-700"
                             />
                           </td>
                           <td class=" px-4 py-2 text-right text-gray-800">
@@ -252,77 +258,87 @@ export default function App() {
               </div>
             </div>
           </div>
-        ) : tab === 'preview' ? (
-          <div>
-            <div class="w-[500px] mx-auto text-base">
-              <div ref={componentRef} class="p-8 bg-white shadow-md">
-                <h1 class="text-3xl font-bold mb-6">Invoice</h1>
-                <div class="flex items-center mb-4">
-                  <div class="w-1/4 font-bold text-gray-700">Date:</div>
-                  <div class="w-3/4 text-gray-800">{today}</div>
-                </div>
-                <div class="flex items-center mb-4">
-                  <div class="w-1/4 font-bold text-gray-700">To:</div>
-                  <div class="w-3/4 text-gray-800">{customer.name}</div>
-                </div>
-                <table class="table-auto w-full">
-                  <thead>
-                    <tr>
-                      <th class="border-b px-4 py-2 text-left text-gray-700 font-bold">
-                        Item
-                      </th>
-                      <th class="border-b px-4 py-2 text-left text-gray-700 font-bold">
-                        Quantity
-                      </th>
-                      <th class="border-b px-4 py-2 text-right text-gray-700 font-bold">
-                        Price
-                      </th>
-                      <th class="border-b px-4 py-2 text-right text-gray-700 font-bold">
-                        Total
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      // map invoice products
-                      products.map((product) => {
-                        return (
-                          <tr>
-                            <td class="border-b px-4 py-2 text-left text-gray-800">
-                              {product.item}
-                            </td>
-                            <td class="border-b px-4 py-2 text-left text-gray-800">
-                              {product.quantity}
-                            </td>
-                            <td class="border-b px-4 py-2 text-right text-gray-800">
-                              {product.price}
-                            </td>
-                            <td class="border-b px-4 py-2 text-right text-gray-800">
-                              {product.price * product.quantity}
-                            </td>
-                          </tr>
-                        );
-                      })
-                    }
-                  </tbody>
-                </table>
-                <div class="flex items-center mt-6 px-4 text-lg">
-                  <div class="w-1/4 font-bold text-gray-700">Total:</div>
-                  <div class="w-3/4 text-gray-800 text-right">{total}</div>
-                </div>
+        )}
+        {tab === 'preview' && (
+          <div class="w-[500px] mx-auto text-base">
+            <div ref={componentRef} class="p-8 bg-white shadow-md">
+              <h1 class="text-3xl font-bold mb-6">Invoice</h1>
+              <div class="flex items-center mb-4">
+                <div class="w-1/4 font-bold text-gray-700">Date:</div>
+                <div class="w-3/4 text-gray-800">{today}</div>
+              </div>
+              <div class="flex items-center mb-4">
+                <div class="w-1/4 font-bold text-gray-700">To:</div>
+                <div class="w-3/4 text-gray-800">{customer.name}</div>
+              </div>
+              <table class="table-auto w-full">
+                <thead>
+                  <tr>
+                    <th class="border-b px-4 py-2 text-left text-gray-700 font-bold">
+                      Item
+                    </th>
+                    <th class="border-b px-4 py-2 text-left text-gray-700 font-bold">
+                      Quantity
+                    </th>
+                    <th class="border-b px-4 py-2 text-right text-gray-700 font-bold">
+                      Price
+                    </th>
+                    <th class="border-b px-4 py-2 text-right text-gray-700 font-bold">
+                      Total
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    // map invoice products
+                    products.map((product) => {
+                      return (
+                        <tr>
+                          <td class="border-b px-4 py-2 text-left text-gray-800">
+                            {product.item}
+                          </td>
+                          <td class="border-b px-4 py-2 text-left text-gray-800">
+                            {product.quantity}
+                          </td>
+                          <td class="border-b px-4 py-2 text-right text-gray-800">
+                            {product.price}
+                          </td>
+                          <td class="border-b px-4 py-2 text-right text-gray-800">
+                            {product.price * product.quantity}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  }
+                </tbody>
+              </table>
+              <div class="flex items-center mt-6 px-4 text-lg">
+                <div class="w-1/4 font-bold text-gray-700">Total:</div>
+                <div class="w-3/4 text-gray-800 text-right">{total}</div>
               </div>
             </div>
           </div>
-        ) : (
-          ''
         )}
         <div class="fixed w-full flex bottom-0 p-5">
-          <button
-            class="mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handlePrint}
-          >
-            Print
-          </button>
+          {tab === 'invoice' && (
+            <button
+              class="mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-t-lg"
+              onClick={() => {
+                setTab('preview');
+                handlePrint();
+              }}
+            >
+              Preview
+            </button>
+          )}
+          {tab === 'preview' && (
+            <button
+              class="mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-t-lg"
+              onClick={handlePrint}
+            >
+              Print
+            </button>
+          )}
         </div>
       </div>
     </>
